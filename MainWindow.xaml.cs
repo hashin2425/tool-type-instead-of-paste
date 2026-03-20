@@ -70,6 +70,7 @@ public partial class MainWindow : Window
         var text = InputTextBox.Text;
         if (string.IsNullOrEmpty(text)) return;
 
+        _timer?.Stop();
         SendButton.IsEnabled = false;
         _countdown = 3;
         SendButton.Content = _countdown.ToString();
