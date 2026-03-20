@@ -7,7 +7,7 @@
     Title="Type Instead of Paste"
     Height="200" Width="300"
     MinHeight="200" MinWidth="300"
-    Topmost="True" Icon="/AppIcon.png">
+    Topmost="True" Icon="/Assets/AppIcon.ico">
     <Grid Margin="8">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="46*" />
