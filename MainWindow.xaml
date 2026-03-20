@@ -1,12 +1,63 @@
-﻿<Window x:Class="tool_type_instead_of_paste.MainWindow"
+<Window x:Class="tool_type_instead_of_paste.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="clr-namespace:tool_type_instead_of_paste"
     mc:Ignorable="d"
-    Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    Title="Type Instead of Paste"
+    Height="200" Width="300"
+    MinHeight="200" MinWidth="300"
+    Topmost="True" Icon="/AppIcon.png">
+    <Grid Margin="8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="46*" />
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition Width="7*" />
+            <ColumnDefinition Width="39*"/>
+        </Grid.ColumnDefinitions>
 
+        <!-- 左列: 上=送出ボタン、下=テキスト入力 -->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0"
+                x:Name="SendButton"
+                Content="3秒後に送出"
+                Height="32"
+                FontSize="16"
+                Click="SendButton_Click" />
+
+            <TextBox Grid.Row="2"
+                x:Name="InputTextBox"
+                AcceptsReturn="True"
+                AcceptsTab="True"
+                TextWrapping="Wrap"
+                VerticalScrollBarVisibility="Auto"
+                FontSize="16"
+                Padding="4" />
+        </Grid>
+
+        <!-- 右列: 上=履歴リスト、下=クリアボタン -->
+        <Grid Grid.Column="2" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="8" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <ListBox Grid.Row="0"
+                x:Name="HistoryListBox"
+                SelectionChanged="HistoryListBox_SelectionChanged"
+                FontSize="14" />
+
+            <Button Grid.Row="2"
+                Content="履歴をクリア"
+                Height="32"
+                Click="ClearButton_Click" />
+        </Grid>
     </Grid>
 </Window>

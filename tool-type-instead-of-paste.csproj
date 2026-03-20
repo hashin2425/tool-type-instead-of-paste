@@ -9,4 +9,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="AppIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="AppIcon.png" />
+  </ItemGroup>
+
 </Project>
