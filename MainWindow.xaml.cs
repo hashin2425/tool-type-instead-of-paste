@@ -133,7 +133,13 @@ public partial class MainWindow : Window
         }
 
         var array = inputs.ToArray();
-        SendInput((uint)array.Length, array, Marshal.SizeOf<INPUT>());
+        if (array.Length == 0) return;
+
+        var sent = SendInput((uint)array.Length, array, Marshal.SizeOf<INPUT>());
+        if (sent < array.Length)
+            MessageBox.Show(
+                "キーボード入力の送出に失敗しました。\n対象ウィンドウが高い権限で実行されている可能性があります。",
+                "送出エラー", MessageBoxButton.OK, MessageBoxImage.Warning);
     }
 
     private static INPUT CreateUnicodeInput(char c, uint flags) => new()
