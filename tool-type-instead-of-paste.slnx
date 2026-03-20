@@ -1,1 +1,3 @@
-<Solution />
+<Solution>
+    <Project Path="tool-type-instead-of-paste.csproj" />
+</Solution>
